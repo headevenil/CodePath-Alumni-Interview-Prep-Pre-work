@@ -1,0 +1,28 @@
+public class Solution {
+	public int numRange(ArrayList<Integer> a, int b, int c) {
+	    
+	    //initalize counter variables
+	    int i = 0;
+	    int j = 0;
+	    int sum = 0;
+	    int count = 0;
+	    
+	    //start at each element
+	    for(i = 0; i < a.size(); i++) {
+	        sum = a.get(i);
+	        j = i+1;
+	        //try all subsequences
+	        while(sum <= c && j <= a.size()) {
+	            if(sum >= b) {
+	                count++;
+	            }
+	            if(j != a.size()) {
+	                sum += a.get(j);
+	            }
+	            j++;
+	        }
+	    }
+	    
+	    return count;
+	}
+}

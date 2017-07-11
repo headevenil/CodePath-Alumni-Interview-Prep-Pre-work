@@ -1,0 +1,26 @@
+public class Solution {
+	public ArrayList<Integer> nextGreater(ArrayList<Integer> a) {
+	    
+	    //Initalizing data structures
+	    ArrayList<Integer> answer = new ArrayList<Integer>();
+	    Stack<Integer> stack = new Stack<Integer>();
+	    int i = 0;
+	    
+	    //setup ArrayList with default value of -1
+	    for(i = 0; i < a.size(); i++) {
+	        answer.add(new Integer(-1));
+	    }
+	    //Uses stack to store indexes
+	    //Once there is an element greater than a smaller element
+	    //replace -1 by popping the stack, comparing until
+	    //stack is empty
+	    for(i = 0; i < a.size(); i++) {
+	        while(!stack.isEmpty() && a.get(i) > a.get(stack.peek())) {
+	            answer.set(stack.pop(), a.get(i));
+	        }
+	        stack.push(i);
+	    }
+	    
+	    return answer;
+	}
+}

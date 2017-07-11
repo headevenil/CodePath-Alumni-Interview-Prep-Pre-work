@@ -1,0 +1,33 @@
+public class Solution {
+	public ArrayList<ArrayList<Integer>> prettyPrint(int a) {
+	    //initalize iterator values
+	    int size = (2*a)-1;
+	    int level = 0;
+	    int i = 0;
+	    int j = 0;
+	    
+	    //Initalize ArrayList to zeros
+	    ArrayList<ArrayList<Integer>> rowList = new ArrayList<ArrayList<Integer>>();
+	    for(i = 0; i < size; i++) {
+	        rowList.add(new ArrayList<Integer>());
+	        for(j = 0; j < size; j++) {
+	            rowList.get(i).add(new Integer(0));
+	        }
+	    }
+	    
+	    //Set the ArrayList with values
+	    while(a > 0) {
+	        for(i = level; i < size; i++) {
+	            for(j = level; j < size; j++) {
+	                rowList.get(i).set(j, a);
+	            }
+	        }
+	        
+	        a--;
+	        size--;
+	        level++;
+	    }
+	    
+	    return rowList;
+	}
+}

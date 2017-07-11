@@ -1,0 +1,22 @@
+public class Solution {
+	// DO NOT MODIFY THE LIST. IT IS READ ONLY
+	public int kthsmallest(final List<Integer> a, int k) {
+	    //initalize counter variables
+	    int i = 0;
+	    int j = 0;
+	    int temp = 0;
+	    
+	    //setup a minHeap
+	    PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
+	    for(i = 0; i < a.size(); i++) {
+	        heap.offer(a.get(i));
+	    }
+	    
+	    //remove until K-1 index
+	    for(j = 0; j < k; j++) {
+	        temp = heap.poll();
+	    }
+	    
+	    return temp;
+	}
+}
